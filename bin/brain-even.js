@@ -56,7 +56,7 @@ const brainEvenGame = (userName) => {
       counter += 1;
       console.log(message);
       if (counter === 3) {
-        console.log(`Congratulations, ${userName}`);
+        console.log(`Congratulations, ${userName}!`);
       }
     } else {
       console.log(message);
