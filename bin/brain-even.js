@@ -1,4 +1,7 @@
+#!/usr/bin/env node
+
 import readlineSync from "readline-sync";
+import askNameAndGreet from "../src/cli";
 
 // Function for generating random integer
 const getRandomInt = (min, max) => {
@@ -65,4 +68,7 @@ const brainEvenGame = (userName) => {
   }
 };
 
-export default brainEvenGame;
+const user = askNameAndGreet();
+brainEvenGame(user);
+
+// export default brainEvenGame;
