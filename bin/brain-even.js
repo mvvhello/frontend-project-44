@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import readlineSync from "readline-sync";
-import askNameAndGreet from "../src/cli";
+import askNameAndGreet from "../src/cli.js";
 
 // Function for generating random integer
 const getRandomInt = (min, max) => {
