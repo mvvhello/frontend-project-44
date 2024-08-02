@@ -25,7 +25,7 @@ const isAnswerCorrect = (userAnswer, correctAnswer, userName) => {
   } else {
     return {
       isValid: false,
-      message: `${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}. Let's try again, ${userName}`,
+      message: `${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}. \nLet's try again, ${userName}!`,
     };
   }
 };
