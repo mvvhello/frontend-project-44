@@ -3,6 +3,7 @@
 import readlineSync from "readline-sync";
 import askNameAndGreet from "../src/cli.js";
 
+// unique game's functions
 // Function for generating random integer
 const getRandomInt = (min, max) => {
   const minCeiled = Math.ceil(min);
