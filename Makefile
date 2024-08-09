@@ -11,6 +11,6 @@ brain-even: #run brain-even.js from /bin/games/brain-even.js
 
 brain-calc: #run brain-calc.js from /bin/games/brain-even.js
 	node bin/games/brain-calc.js
-
+	
 publish: 
 	npm publish --dry-run

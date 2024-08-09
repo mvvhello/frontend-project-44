@@ -12,7 +12,7 @@ import {
 // Getting random expression
 const getRandomExpression = () => {
   const operators = ["+", "-", "*"];
-  const randomOperator = operators[getRandomInt[(0, 3)]];
+  const randomOperator = operators[getRandomInt(0, 3)];
   const num1 = getRandomInt(1, 100);
   const num2 = getRandomInt(1, 100);
 
