@@ -3,17 +3,12 @@
 import {
   GAME_ROUNDS,
   askNameAndGreet,
+  getRandomInt,
   interactionWithUser,
   playGame,
-} from "../src/index.js";
+} from "../../src/index.js";
 
 // Unique game's functions (creating conditions)
-// Function for generating random integer
-const getRandomInt = (min, max) => {
-  const minCeiled = Math.ceil(min);
-  const maxFloored = Math.floor(max);
-  return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled); // The maximum is exclusive and the minimum is inclusive
-};
 
 // Function for check if number is even or not
 const isEven = (number) => {
@@ -43,5 +38,6 @@ const brainEvenGame = (userName) => {
   }
 };
 
-const user = askNameAndGreet();
-brainEvenGame(user);
+// The game
+const userName = askNameAndGreet();
+brainEvenGame(userName);

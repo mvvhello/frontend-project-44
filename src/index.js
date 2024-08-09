@@ -11,6 +11,13 @@ const askNameAndGreet = () => {
   return name; // return the name after printing for further usage
 };
 
+// Getting random integer
+const getRandomInt = (min, max) => {
+  const minCeiled = Math.ceil(min);
+  const maxFloored = Math.floor(max);
+  return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled); // The maximum is exclusive and the minimum is inclusive
+};
+
 // Getting user's answer for further functions
 const interactionWithUser = (question) => {
   console.log(`Question: ${question}`);
@@ -55,4 +62,10 @@ const playGame = (userAnswer, correctAnswer, userName, counter) => {
   return counter;
 };
 
-export { GAME_ROUNDS, askNameAndGreet, interactionWithUser, playGame };
+export {
+  GAME_ROUNDS,
+  askNameAndGreet,
+  getRandomInt,
+  interactionWithUser,
+  playGame,
+};

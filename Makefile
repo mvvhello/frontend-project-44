@@ -6,8 +6,11 @@ install: #installing project dependencies
 brain-games: #run brain-games.js from /bin/brain-games.js
 	node bin/brain-games.js
 
-brain-even: #run brain-even.js from /bin/brain-even.js
-	node bin/brain-even.js
+brain-even: #run brain-even.js from /bin/games/brain-even.js
+	node bin/games/brain-even.js
+
+brain-calc: #run brain-calc.js from /bin/games/brain-even.js
+	node bin/games/brain-calc.js
 
 publish: 
 	npm publish --dry-run
