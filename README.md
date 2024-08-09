@@ -4,8 +4,8 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/113f892e71a0fa0ef6c6/maintainability)](https://codeclimate.com/github/mvvhello/frontend-project-44/maintainability)
 
-Brain-even game:
 [![asciicast](https://asciinema.org/a/ndcQuwQUWhJRBuBVLX3LXpOYa.svg)](https://asciinema.org/a/ndcQuwQUWhJRBuBVLX3LXpOYa)
+Brain-even game:
 
-Brain-calc game:
 [![asciicast](https://asciinema.org/a/61jbYCfxuV7mKjVevPRRJsumo.svg)](https://asciinema.org/a/61jbYCfxuV7mKjVevPRRJsumo)
+Brain-calc game:
