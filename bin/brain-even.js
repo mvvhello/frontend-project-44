@@ -1,9 +1,13 @@
 #!/usr/bin/env node
 
-import readlineSync from "readline-sync";
-import askNameAndGreet from "../src/cli.js";
+import {
+  GAME_ROUNDS,
+  askNameAndGreet,
+  interactionWithUser,
+  playGame,
+} from "../src/index.js";
 
-// unique game's functions
+// Unique game's functions (creating conditions)
 // Function for generating random integer
 const getRandomInt = (min, max) => {
   const minCeiled = Math.ceil(min);
@@ -13,57 +17,27 @@ const getRandomInt = (min, max) => {
 
 // Function for check if number is even or not
 const isEven = (number) => {
-  // Check if the input value is an integer
   if (!Number.isInteger(number)) {
     throw new Error(`Wrong input.The ${number} is not an integer`);
   }
 
-  // will return true if === 0, otherwise will return false
   return number % 2 === 0;
 };
 
-// Function to check if user's answer is correct
-const isAnswerCorrect = (userAnswer, correctAnswer, userName) => {
-  if (userAnswer === correctAnswer) {
-    return { isValid: true, message: `Correct!` };
-  } else {
-    return {
-      isValid: false,
-      message: `${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}. \nLet's try again, ${userName}!`,
-    };
-  }
-};
-
-// Game logic
+// Game's core logic
 const brainEvenGame = (userName) => {
   console.log(`Answer "yes" if the number is even, otherwise answer "no".`);
 
   let counter = 0;
-  while (counter < 3) {
+  while (counter < GAME_ROUNDS) {
     // get data for the game
-    const randomNumber = getRandomInt(1, 11);
-    const correctAnswer = isEven(randomNumber) ? "yes" : "no";
+    const gameTask = getRandomInt(1, 11);
+    const userAnswer = interactionWithUser(gameTask);
+    const correctAnswer = isEven(gameTask) ? "yes" : "no";
 
-    // interaction with the user
-    console.log(`Question: ${randomNumber}`);
-    const userAnswer = readlineSync.question(`Your answer: `).toLowerCase();
-
-    // validate user's answer
-    const { isValid, message } = isAnswerCorrect(
-      userAnswer,
-      correctAnswer,
-      userName
-    );
-
-    // validating user's answer
-    if (isValid) {
-      counter += 1;
-      console.log(message);
-      if (counter === 3) {
-        console.log(`Congratulations, ${userName}!`);
-      }
-    } else {
-      console.log(message);
+    // play game (validate user's answer and then increment the counter OR break the cycle if the answer was wrong)
+    counter = playGame(userAnswer, correctAnswer, userName, counter);
+    if (counter === 0) {
       break;
     }
   }
@@ -71,5 +45,3 @@ const brainEvenGame = (userName) => {
 
 const user = askNameAndGreet();
 brainEvenGame(user);
-
-// export default brainEvenGame;
