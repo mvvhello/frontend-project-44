@@ -53,7 +53,7 @@ const brainCalcGame = (userName) => {
   while (counter < GAME_ROUNDS) {
     // get data for the game
     const gameTask = getRandomExpression();
-    const userAnswer = interactionWithUser(gameTask);
+    const userAnswer = parseInt(interactionWithUser(gameTask));
     const correctAnswer = getResultOfExpression(gameTask);
 
     // play game (validate user's answer and then increment the counter OR break the cycle if the answer was wrong)
