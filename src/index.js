@@ -13,6 +13,18 @@ const askNameAndGreet = () => {
 
 // Getting random integer
 const getRandomInt = (min, max) => {
+  // validate inputs
+  if (typeof min !== "number" || typeof max !== "number") {
+    throw new Error("Both min and max must be numbers.");
+  }
+  if (!Number.isInteger(min) || !Number.isInteger(max)) {
+    throw new Error("Both min and max must be integers.");
+  }
+  if (min >= max) {
+    throw new Error("min must be less than max.");
+  }
+
+  // find and return randon integer
   const minCeiled = Math.ceil(min);
   const maxFloored = Math.floor(max);
   return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled); // The maximum is exclusive and the minimum is inclusive
