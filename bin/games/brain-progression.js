@@ -25,10 +25,11 @@ const makeProgressionRow = () => {
 const makeGapInProgressionRow = (progression) => {
   const randomGapIndex = getRandomInt(0, 10);
   const randomGapIndexValue = progression[randomGapIndex];
-  const progressionWithRow = [...progression];
-  progressionWithRow[randomGapIndex] = "..";
+  const progressionRowWithGap = [...progression];
+  progressionRowWithGap[randomGapIndex] = "..";
+  const formattedProgressionRawWithGap = progressionWithRow.join(" ");
 
-  return { progressionWithRow, randomGapIndexValue };
+  return { formattedProgressionRawWithGap, randomGapIndexValue };
 };
 
 // Game's core logic
@@ -39,8 +40,10 @@ const brainProgressionGame = (userName) => {
   while (counter < GAME_ROUNDS) {
     // getting data for the game
     const progressionRow = makeProgressionRow();
-    const { progressionWithRow: gameTask, randomGapIndexValue: correctAnswer } =
-      makeGapInProgressionRow(progressionRow);
+    const {
+      formattedProgressionRawWithGap: gameTask,
+      randomGapIndexValue: correctAnswer,
+    } = makeGapInProgressionRow(progressionRow);
     const userInput = interactionWithUser(gameTask);
     const userAnswer = isNaN(parseInt(userInput))
       ? userInput
