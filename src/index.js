@@ -45,7 +45,7 @@ const validateUserAnswer = (userAnswer, correctAnswer, userName) => {
   } else {
     return {
       isValid: false,
-      message: `${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}. \nLet's try again, ${userName}!`,
+      message: `'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. \nLet's try again, ${userName}!`,
       point: 0,
     };
   }

@@ -27,7 +27,7 @@ const makeGapInProgressionRow = (progression) => {
   const randomGapIndexValue = progression[randomGapIndex];
   const progressionRowWithGap = [...progression];
   progressionRowWithGap[randomGapIndex] = "..";
-  const formattedProgressionRawWithGap = progressionWithRow.join(" ");
+  const formattedProgressionRawWithGap = progressionRowWithGap.join(" ");
 
   return { formattedProgressionRawWithGap, randomGapIndexValue };
 };
