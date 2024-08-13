@@ -14,6 +14,9 @@ brain-calc: #run brain-calc.js from /bin/games/brain-even.js
 
 brain-gcd: #run brain-gcd.js from /bin/games/brain-gcd.js
 	node bin/games/brain-gcd.js
+
+brain-progression: #run brain-progression.js from /bin/games/brain-progression.js
+	node bin/games/brain-progression.js
 	
-publish: 
+publish: #make fake global publishing
 	npm publish --dry-run
