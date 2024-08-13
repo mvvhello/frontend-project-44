@@ -26,7 +26,10 @@ const brainGcdGame = (userName) => {
     // getting data for the game
     const num1 = getRandomInt(1, 100);
     const num2 = getRandomInt(1, 100);
-    const userAnswer = parseInt(interactionWithUser(`${num1} ${num2}`));
+    const userInput = interactionWithUser(`${num1} ${num2}`);
+    const userAnswer = isNaN(parseInt(userInput))
+      ? userInput
+      : parseInt(userInput);
     const correctAnswer = findGcd(num1, num2);
 
     counter = playGame(userAnswer, correctAnswer, userName, counter);
