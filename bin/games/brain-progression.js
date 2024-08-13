@@ -21,8 +21,9 @@ const makeProgressionRow = () => {
   return progressionRow;
 };
 
+// Making gameTask (progressionWithRow) and exctract the correctAnswer (randomGapIndexValue) for brainProgressionGame()
 const makeGapInProgressionRow = (progression) => {
-  const randomGapIndex = getRandomInt(0, 11);
+  const randomGapIndex = getRandomInt(0, 10);
   const randomGapIndexValue = progression[randomGapIndex];
   const progressionWithRow = [...progression];
   progressionWithRow[randomGapIndex] = "..";
