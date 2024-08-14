@@ -14,6 +14,9 @@ brain-gcd: #run brain-gcd.js from /bin/games/brain-gcd.js
 
 brain-progression: #run brain-progression.js from /bin/games/brain-progression.js
 	node bin/games/brain-progression.js
+
+brain-prime: #run brain-prime.js from /bin/games/brain-prime.js
+	node bin/games/brain-prime.js
 	
 publish: #make fake global publishing
 	npm publish --dry-run
