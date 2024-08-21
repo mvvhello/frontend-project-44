@@ -3,12 +3,13 @@ import readlineSync from "readline-sync";
 const GAME_ROUNDS = 3;
 
 // Greeting the user and get his name for further functions
-const askNameAndGreet = () => {
+const askNameAndGreet = (gameDescription) => {
   console.log(`Welcome to the Brain Games!`);
   const name = readlineSync.question("May I have your name? ");
   console.log(`Hello, ${name}!`);
+  console.log(gameDescription);
 
-  return name; // return the name after printing for further usage
+  return name; // return the name after printing greetings for further usage
 };
 
 // Getting random integer
@@ -40,7 +41,8 @@ const interactionWithUser = (question) => {
 
 // Compare user's answer and correct answer and return data for playGame() function
 const validateUserAnswer = (userAnswer, correctAnswer, userName) => {
-  if (userAnswer === correctAnswer) {
+  const stringCorrectAnswer = correctAnswer.toString();
+  if (userAnswer === stringCorrectAnswer) {
     return { isValid: true, message: `Correct!`, point: 1 };
   } else {
     return {
@@ -53,7 +55,7 @@ const validateUserAnswer = (userAnswer, correctAnswer, userName) => {
 
 // Validate user's answer and if it is correct - increment counter, otherwise - counter will be equal to 0, which will stop the game.
 // With messages accompanying the game
-const playGame = (userAnswer, correctAnswer, userName, counter) => {
+const compareAnswers = (userAnswer, correctAnswer, userName, counter) => {
   const { isValid, message, point } = validateUserAnswer(
     userAnswer,
     correctAnswer,
@@ -74,10 +76,24 @@ const playGame = (userAnswer, correctAnswer, userName, counter) => {
   return counter;
 };
 
-export {
-  GAME_ROUNDS,
-  askNameAndGreet,
-  getRandomInt,
-  interactionWithUser,
-  playGame,
+const playGame = (
+  gameDescription,
+  generateGameTaskFunction,
+  findCorrectAnswerFunction
+) => {
+  const userName = askNameAndGreet(gameDescription);
+  let counter = 0;
+
+  while (counter < GAME_ROUNDS) {
+    const gameTask = generateGameTaskFunction();
+    const userAnswer = interactionWithUser(gameTask);
+    const correctAnswer = findCorrectAnswerFunction(gameTask);
+
+    counter = compareAnswers(userAnswer, correctAnswer, userName, counter);
+    if (counter === 0) {
+      break;
+    }
+  }
 };
+
+export { askNameAndGreet, getRandomInt, playGame };
