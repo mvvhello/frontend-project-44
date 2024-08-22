@@ -1,4 +1,4 @@
-import { getRandomInt, playGame } from "../../src/index.js";
+import { getRandomInt, playGame } from '../index.js';
 
 // Unique game's functions (creating conditions)
 
@@ -12,14 +12,14 @@ const isEven = (number) => {
 };
 
 // create gameDescription with describing of game task for askNameAndGreet() function
-const gameDescription = `Answer "yes" if the number is even, otherwise answer "no".`;
+const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 // Game's core logic
 const brainEvenGame = () => {
   playGame(
     gameDescription,
     () => getRandomInt(1, 11),
-    (number) => (isEven(number) ? "yes" : "no")
+    (number) => (isEven(number) ? 'yes' : 'no'),
   );
 };
 

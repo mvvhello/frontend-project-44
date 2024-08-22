@@ -1,4 +1,4 @@
-import { getRandomInt, playGame } from "../../src/index.js";
+import { getRandomInt, playGame } from '../index.js';
 
 // Unique game's functions (creating conditions)
 // Make progression row without gap
@@ -14,24 +14,27 @@ const makeProgressionRow = () => {
   return progressionRow;
 };
 
-// MAIN FUNCTION: Making gameTask (formattedPregressionRawWithGap) function already with correctAnswer (randomGapIndexValue)
+// MAIN FUNCTION: Make gameTask with correctAnswer
 const makeGapInProgressionRow = () => {
-  const progression = makeProgressionRow(); // generate progression row
-  const randomGapIndex = getRandomInt(0, progression.length - 1); // random index within the progression
-  const randomGapIndexValue = progression[randomGapIndex].toString(); // value at the index, converted as a string for further comparison
-  const progressionRowWithGap = [...progression]; // clone the progression row
-  progressionRowWithGap[randomGapIndex] = ".."; // replace the value at the randomGapIndex with ".."
-  const formattedProgressionRawWithGap = progressionRowWithGap.join(" "); // convert array to string for further correct console output for gameTask
+  const progression = makeProgressionRow();
+  const randomGapIndex = getRandomInt(0, progression.length - 1);
 
-  return { formattedProgressionRawWithGap, randomGapIndexValue }; // return gameTask (progression with gap as a string) and missed value (e.g. correctAnswer)
+  // value at the index, converted as a string for further comparison
+  const randomGapIndexValue = progression[randomGapIndex].toString();
+  const progressionRowWithGap = [...progression];
+
+  progressionRowWithGap[randomGapIndex] = '..';
+  const formattedProgressionRawWithGap = progressionRowWithGap.join(' ');
+
+  // return gameTask (progression with gap as a string) and missed value (e.g. correctAnswer)
+  return { formattedProgressionRawWithGap, randomGapIndexValue };
 };
 
-// Parsing functions for makeGapInProgressionRow function to exctract the gameTask and correctAnswer for further playGame() function parameters
+// Parsing functions
 let correctAnswer;
 
 const generateGameTask = () => {
-  const { formattedProgressionRawWithGap, randomGapIndexValue } =
-    makeGapInProgressionRow();
+  const { formattedProgressionRawWithGap, randomGapIndexValue } = makeGapInProgressionRow();
 
   correctAnswer = randomGapIndexValue;
   const gameTask = formattedProgressionRawWithGap;
@@ -39,12 +42,10 @@ const generateGameTask = () => {
   return gameTask;
 };
 
-const findCorrectAnswer = () => {
-  return correctAnswer;
-};
+const findCorrectAnswer = () => correctAnswer;
 
 // create gameDescription with describing of game task for askNameAndGreet() function
-const gameDescription = `What number is missing in the progression?`;
+const gameDescription = 'What number is missing in the progression?';
 
 // Game's core logic
 const brainProgressionGame = () => {

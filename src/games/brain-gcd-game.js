@@ -1,4 +1,4 @@
-import { getRandomInt, playGame } from "../../src/index.js";
+import { getRandomInt, playGame } from '../index.js';
 
 // Unique game's functions (creating conditions)
 // Find GCD function (Euclidean algorithm) aka findCorrectAnswerFunction for playGame function
@@ -20,12 +20,12 @@ const generateGameTask = () => {
 };
 
 // create gameDescription with describing of game task for askNameAndGreet() function
-const gameDescription = `Find the greatest common divisor of given numbers.`;
+const gameDescription = 'Find the greatest common divisor of given numbers.';
 
 // Game's core logic
 const brainGcdGame = () => {
   playGame(gameDescription, generateGameTask, (gameTask) => {
-    const [a, b] = gameTask.split(" ").map(Number);
+    const [a, b] = gameTask.split(' ').map(Number);
     return findCorrectAnswer(a, b);
   });
 };

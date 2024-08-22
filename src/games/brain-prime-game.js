@@ -1,4 +1,4 @@
-import { getRandomInt, playGame } from "../../src/index.js";
+import { getRandomInt, playGame } from '../index.js';
 
 // Unique game's functions (creating conditions)
 // Function to uderstand if the number is prime or not
@@ -13,14 +13,14 @@ const isPrime = (number) => {
 };
 
 // create gameDescription with describing of game task for askNameAndGreet() function
-const gameDescription = `Answer "yes" if given number is prime. Otherwise answer "no".`;
+const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 // Game's core logic
 const brainPrimeGame = () => {
   playGame(
     gameDescription,
     () => getRandomInt(1, 31),
-    (number) => (isPrime(number) ? "yes" : "no")
+    (number) => (isPrime(number) ? 'yes' : 'no'),
   );
 };
 
