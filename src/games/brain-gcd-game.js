@@ -20,7 +20,7 @@ const generateGameTask = () => {
 };
 
 // create gameDescription with describing of game task for askNameAndGreet() function
-const gameDescription = `Find the greatest common diviser of given numbers.`;
+const gameDescription = `Find the greatest common divisor of given numbers.`;
 
 // Game's core logic
 const brainGcdGame = () => {
