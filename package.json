@@ -14,6 +14,7 @@
   "author": "mvvhello",
   "license": "ISC",
   "bin": {
+    "brain-games": "bin/brain-games.js",
     "brain-even": "bin/games/brain-even.js",
     "brain-calc": "bin/games/brain-calc.js",
     "brain-gcd": "bin/games/brain-gcd.js",

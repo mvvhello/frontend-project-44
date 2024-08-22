@@ -7,7 +7,10 @@ const askNameAndGreet = (gameDescription) => {
   console.log(`Welcome to the Brain Games!`);
   const name = readlineSync.question("May I have your name? ");
   console.log(`Hello, ${name}!`);
-  console.log(gameDescription);
+
+  if (gameDescription) {
+    console.log(gameDescription);
+  }
 
   return name; // return the name after printing greetings for further usage
 };
