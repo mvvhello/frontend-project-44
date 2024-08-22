@@ -9,7 +9,7 @@ const isPrime = (number) => {
       return false;
     }
   }
-  return true;
+  return number > 1;
 };
 
 // create gameDescription with describing of game task for askNameAndGreet() function
