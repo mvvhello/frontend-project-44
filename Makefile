@@ -23,3 +23,6 @@ brain-prime: #run brain-prime.js from /bin/games/brain-prime.js
 	
 publish: #make fake global publishing
 	npm publish --dry-run
+
+lint: 
+	npx eslint .
